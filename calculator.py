@@ -13,19 +13,22 @@ while True:
 
     if event == None:
         break
-    x = float(values['_X_'])
-    y = float(values['_Y_'])
-
-    if event == '+':
-        sg.popup(f'{x} + {y} = {x+y}')
-    if event == '-':
-        sg.popup(f'{x} - {y} = {x-y}')
-    if event == '*':
-        sg.popup(f'{x} * {y} = {x*y}')
-    if event == '/':
-        try:
-            sg.popup(f'{x} / {y} = {x/y}')
-        except ZeroDivisionError:
-            sg.popup('Zero Division is not allowed.')
+    try:
+        x = float(values['_X_'])
+        y = float(values['_Y_'])
+    except ValueError:
+        sg.popup('One of the values is not a number.')
+    else: 
+        if event == '+':
+            sg.popup(f'{x} + {y} = {x+y}')
+        if event == '-':
+            sg.popup(f'{x} - {y} = {x-y}')
+        if event == '*':
+            sg.popup(f'{x} * {y} = {x*y}')
+        if event == '/':
+            try:
+                sg.popup(f'{x} / {y} = {x/y}')
+            except ZeroDivisionError:
+                sg.popup('Zero Division is not allowed.')
 
 window.close()
