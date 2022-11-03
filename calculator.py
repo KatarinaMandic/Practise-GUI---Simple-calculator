@@ -23,6 +23,9 @@ while True:
     if event == '*':
         sg.popup(f'{x} * {y} = {x*y}')
     if event == '/':
-        sg.popup(f'{x} / {y} = {x/y}')
+        try:
+            sg.popup(f'{x} / {y} = {x/y}')
+        except ZeroDivisionError:
+            sg.popup('Zero Division is not allowed.')
 
 window.close()
